@@ -2,6 +2,6 @@
 
 ### Useful commands (Mac)
 
-cd iOS
-pod deintegrate
-pod install --repo-update
+- cd iOS
+- pod deintegrate
+- pod install --repo-update
