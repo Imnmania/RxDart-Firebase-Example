@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>381984877526-pn3ut54uip1aa95uee5s1q0raeqrhi9b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.381984877526-pn3ut54uip1aa95uee5s1q0raeqrhi9b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBz-aYp7hly_YOLVox-6oOZXf4og3Ii5Cw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>381984877526</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.niloy.rxDartExample11Firebase</string>
+	<key>PROJECT_ID</key>
+	<string>rx-dart-example-11-firebase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rx-dart-example-11-firebase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:381984877526:ios:76878b4af6e6abaa9c1277</string>
+</dict>
+</plist>

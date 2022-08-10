@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381984877526",
+    "project_id": "rx-dart-example-11-firebase",
+    "storage_bucket": "rx-dart-example-11-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381984877526:android:197190fc921241029c1277",
+        "android_client_info": {
+          "package_name": "com.niloy.rx_dart_example_11_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381984877526-j6sn9n4qc7ue4ee27c6h9jbuh38lkh87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLiRaoPXLrQpn8R1ZsplZcq-jUoGmtsfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381984877526-j6sn9n4qc7ue4ee27c6h9jbuh38lkh87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
