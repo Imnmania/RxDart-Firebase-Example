@@ -39,6 +39,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   cloud_firestore: ^3.4.3
   uuid: ^3.0.6
+  rxdart: ^0.27.5
 
 dev_dependencies:
   flutter_test:
