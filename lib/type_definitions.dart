@@ -17,3 +17,4 @@ typedef CreateContactCallback = void Function(
   String phoneNumber,
 );
 typedef DeleteContactCallback = void Function(Contact contact);
+typedef DeleteAccountCallback = VoidCallback;

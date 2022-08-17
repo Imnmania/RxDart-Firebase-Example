@@ -100,6 +100,10 @@ class AppBloc {
     );
   }
 
+  void deleteAccount() {
+    // TODO: Implement delete account
+  }
+
   void logout() {
     _authBloc.logout.add(null);
   }

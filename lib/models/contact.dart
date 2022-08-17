@@ -40,6 +40,8 @@ class Contact {
   String toString() {
     return '$firstName $lastName';
   }
+
+  String get fullName => '$firstName $lastName';
 }
 
 @immutable
