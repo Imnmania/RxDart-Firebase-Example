@@ -5,7 +5,7 @@ import 'package:rx_dart_example_11_firebase/models/contact.dart';
 import 'package:rxdart/rxdart.dart';
 
 typedef _Snapshots = QuerySnapshot<Map<String, dynamic>>;
-typedef _Documents = DocumentReference<Map<String, dynamic>>;
+// typedef _Documents = DocumentReference<Map<String, dynamic>>;
 
 extension Unwrap<T> on Stream<T?> {
   Stream<T> unwrap() => switchMap((optional) async* {
@@ -20,24 +20,33 @@ class ContactsBloc {
   final Sink<String?> userId;
   final Sink<Contact> createContact;
   final Sink<Contact> deleteContact;
+  final Sink<void> deleteAllContacts;
   final Stream<Iterable<Contact>> contacts;
   final StreamSubscription<void> _createContactSubscription;
   final StreamSubscription<void> _deleteContactSubscription;
+  final StreamSubscription<void> _deleteAllContactsSubscription;
 
   const ContactsBloc._({
     required this.userId,
     required this.createContact,
     required this.deleteContact,
     required this.contacts,
+    required this.deleteAllContacts,
     required StreamSubscription<void> createContactSubscription,
     required StreamSubscription<void> deleteContactSubscription,
+    required StreamSubscription<void> deleteAllContactsSubscription,
   })  : _createContactSubscription = createContactSubscription,
-        _deleteContactSubscription = deleteContactSubscription;
+        _deleteContactSubscription = deleteContactSubscription,
+        _deleteAllContactsSubscription = deleteAllContactsSubscription;
 
   void dispose() {
     userId.close();
     createContact.close();
     deleteContact.close();
+    deleteAllContacts.close();
+    _createContactSubscription.cancel();
+    _deleteContactSubscription.cancel();
+    _deleteAllContactsSubscription.cancel();
   }
 
   factory ContactsBloc() {
@@ -78,14 +87,26 @@ class ContactsBloc {
       });
     }).listen((event) {});
 
+    // delete all contacts
+    final deleteAllContactsSubject = BehaviorSubject<void>();
+    final StreamSubscription<void> deleteAllContactsSubscription =
+        deleteAllContactsSubject
+            .switchMap((_) => userId.take(1).unwrap())
+            .asyncMap((userId) => backend.collection(userId).get())
+            .switchMap((collection) => Stream.fromFutures(
+                collection.docs.map((doc) => doc.reference.delete())))
+            .listen((_) {});
+
     // create contacts bloc
     return ContactsBloc._(
       userId: userId,
       createContact: createContactSubject,
       deleteContact: deleteContactSubject,
+      deleteAllContacts: deleteAllContactsSubject,
       contacts: contacts,
       createContactSubscription: createContactSubscription,
       deleteContactSubscription: deleteContactSubscription,
+      deleteAllContactsSubscription: deleteAllContactsSubscription,
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rx_dart_example_11_firebase/models/contact.dart';
 import 'package:rx_dart_example_11_firebase/presentation/widgets/dialogs/delete_contact_dialog.dart';
-import 'package:rx_dart_example_11_firebase/type_definitions.dart';
+import 'package:rx_dart_example_11_firebase/helpers/type_definitions.dart';
 
 class ContactsListTile extends StatelessWidget {
   final Contact contact;

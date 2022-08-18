@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rx_dart_example_11_firebase/presentation/widgets/dialogs/delete_account_dialog.dart';
 import 'package:rx_dart_example_11_firebase/presentation/widgets/dialogs/logout_dialog.dart';
-import 'package:rx_dart_example_11_firebase/type_definitions.dart';
+import 'package:rx_dart_example_11_firebase/helpers/type_definitions.dart';
 
 enum MenuAction {
   logout,

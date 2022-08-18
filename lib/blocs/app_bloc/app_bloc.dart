@@ -86,11 +86,11 @@ class AppBloc {
     _contactsBloc.deleteContact.add(contact);
   }
 
-  void createContact({
-    required String firstName,
-    required String lastName,
-    required String phoneNumber,
-  }) {
+  void createContact(
+    String firstName,
+    String lastName,
+    String phoneNumber,
+  ) {
     _contactsBloc.createContact.add(
       Contact.withoutId(
         firstName: firstName,
@@ -101,7 +101,8 @@ class AppBloc {
   }
 
   void deleteAccount() {
-    // TODO: Implement delete account
+    _contactsBloc.deleteAllContacts.add(null);
+    _authBloc.deleteAccount.add(null);
   }
 
   void logout() {
@@ -112,20 +113,20 @@ class AppBloc {
     return _contactsBloc.contacts;
   }
 
-  void register({
-    required String email,
-    required String password,
-  }) {
+  void register(
+    String email,
+    String password,
+  ) {
     _authBloc.register.add(RegisterCommand(
       email: email,
       password: password,
     ));
   }
 
-  void login({
-    required String email,
-    required String password,
-  }) {
+  void login(
+    String email,
+    String password,
+  ) {
     _authBloc.login.add(LoginCommand(
       email: email,
       password: password,

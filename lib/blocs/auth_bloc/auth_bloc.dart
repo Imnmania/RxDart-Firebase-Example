@@ -77,6 +77,7 @@ class AuthBloc {
   final Sink<LoginCommand> login;
   final Sink<RegisterCommand> register;
   final Sink<void> logout;
+  final Sink<void> deleteAccount;
 
   const AuthBloc._({
     required this.authStatus,
@@ -86,12 +87,14 @@ class AuthBloc {
     required this.login,
     required this.register,
     required this.logout,
+    required this.deleteAccount,
   });
 
   void dispose() {
     login.close();
     register.close();
     logout.close();
+    deleteAccount.close();
   }
 
   factory AuthBloc() {
@@ -164,11 +167,26 @@ class AuthBloc {
       }
     }).setLoadingTo(false, onSink: isLoading);
 
+    // delete account
+    final deleteAccount = BehaviorSubject<void>();
+    final Stream<AuthError?> deleteAccountError =
+        deleteAccount.setLoadingTo(true, onSink: isLoading).asyncMap((_) async {
+      try {
+        await FirebaseAuth.instance.currentUser?.delete();
+        return null;
+      } on FirebaseAuthException catch (e) {
+        return AuthError.from(e);
+      } catch (_) {
+        return const AuthErrorUnknown();
+      }
+    }).setLoadingTo(false, onSink: isLoading);
+
     // auth error = (login error + register error + logout error)
     final Stream<AuthError?> authError = Rx.merge([
       loginError,
       registerError,
       logoutError,
+      deleteAccountError,
     ]);
 
     return AuthBloc._(
@@ -179,6 +197,7 @@ class AuthBloc {
       login: login,
       register: register,
       logout: logout,
+      deleteAccount: deleteAccount,
     );
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rx_dart_example_11_firebase/presentation/screens/contacts_list_tile.dart';
+import 'package:rx_dart_example_11_firebase/presentation/screens/contacts_screen/components/contacts_list_tile.dart';
 import 'package:rx_dart_example_11_firebase/presentation/widgets/popup_menu/main_popup_menu_button.dart';
-import 'package:rx_dart_example_11_firebase/type_definitions.dart';
+import 'package:rx_dart_example_11_firebase/helpers/type_definitions.dart';
 
-import '../../models/contact.dart';
+import '../../../models/contact.dart';
 
 class ContactsListScreen extends StatelessWidget {
   final DeleteContactCallback deleteContact;
